@@ -1,0 +1,34 @@
+{
+    "name": "senseexception/intl-format-bundle",
+    "description": "A Symfony bundle of the IntlFormat wrapper library for PHP intl messages",
+    "type": "symfony-bundle",
+    "keywords": ["intl", "i18n", "formatter", "icu", "i18n", "internationalization", "Symfony", "Bundle", "messages", "sprintf"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Claudio Zizza",
+            "email": "claudio@budgegeria.de"
+        }
+    ],
+    "require": {
+        "php": "^5.6|^7.0",
+        "ext-intl": "*",
+        "symfony/framework-bundle": "^2.8|^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.2.*",
+        "symfony/twig-bundle": "^2.8|^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Budgegeria\\Bundle\\IntlFormatBundle\\": ""
+        },
+        "exclude-from-classmap": ["Tests/*"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Budgegeria\\Bundle\\IntlFormatBundle\\Tests\\": "Tests/"
+        }
+    },
+    "prefer-stable": true
+}

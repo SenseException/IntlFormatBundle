@@ -1,0 +1,8 @@
+--TEST--
+"intl_format" filter
+--TEMPLATE--
+{{ message|intl_format(1.4, 1.3) }}
+--DATA--
+return ['message' => '%2$number is greater than %1$integer']
+--EXPECT--
+1,3 is greater than 1

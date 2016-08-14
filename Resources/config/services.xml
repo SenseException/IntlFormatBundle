@@ -3,11 +3,24 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--<parameters>
-        <parameter key="intl-format.class"></parameter>
+    <parameters>
+        <parameter key="intl_format.twig.intl_format_extension.class">Budgegeria\Bundle\IntlFormatBundle\Twig\IntlFormatExtension</parameter>
+        <parameter key="intl_format.class">Budgegeria\IntlFormat\IntlFormat</parameter>
+        <parameter key="intl_format.factory.class">Budgegeria\IntlFormat\Factory</parameter>
     </parameters>
 
     <services>
-        <service id="intl-format." class="%intl-format.class%"/>
-    </services>-->
+        <!-- TODO Don't use the factory. Use Symfony tags for formatter -->
+        <service id="intl_format.factory" class="%intl_format.factory.class%" public="false"/>
+
+        <service id="intl_format.sprintf" class="%intl_format.class%" public="false">
+            <factory service="intl_format.factory" method="createIntlFormat"/>
+                <argument type="string">%kernel.default_locale%</argument>
+        </service>
+
+        <service id="intl_format.twig.intl_format_extension" class="%intl_format.twig.intl_format_extension.class%" public="false">
+            <argument type="service" id="intl_format.sprintf"/>
+            <tag name="twig.extension" />
+        </service>
+    </services>
 </container>

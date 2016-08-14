@@ -1,0 +1,13 @@
+imports:
+    - { resource: "@IntlFormatBundle/Resources/config/services.xml" }
+
+framework:
+    secret:          "MyTestSecret"
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "de_DE"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+    test: ~

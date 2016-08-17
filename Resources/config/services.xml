@@ -6,18 +6,17 @@
     <parameters>
         <parameter key="intl_format.twig.intl_format_extension.class">Budgegeria\Bundle\IntlFormatBundle\Twig\IntlFormatExtension</parameter>
         <parameter key="intl_format.class">Budgegeria\IntlFormat\IntlFormat</parameter>
-        <parameter key="intl_format.factory.class">Budgegeria\IntlFormat\Factory</parameter>
         <parameter key="intl_format.formatter.number.class">Budgegeria\IntlFormat\Formatter\MessageFormatter</parameter>
         <parameter key="intl_format.formatter.timezone.class">Budgegeria\IntlFormat\Formatter\TimeZoneFormatter</parameter>
+        <parameter key="intl_format.message_parser.sprintf_parser.class">Budgegeria\IntlFormat\MessageParser\SprintfParser</parameter>
     </parameters>
 
     <services>
-        <!-- TODO Don't use the factory. Use Symfony tags for formatter -->
-        <service id="intl_format.factory" class="%intl_format.factory.class%" public="false"/>
+        <service id="intl_format.message_parser.sprintf_parser" class="%intl_format.message_parser.sprintf_parser.class%" public="false"/>
 
-        <service id="intl_format.sprintf" class="%intl_format.class%" public="false">
-            <factory service="intl_format.factory" method="createIntlFormat"/>
-            <argument type="string">%kernel.default_locale%</argument>
+        <service id="intl_format.sprintf" class="%intl_format.class%">
+            <argument type="collection"/>
+            <argument type="service" id="intl_format.message_parser.sprintf_parser"/>
         </service>
 
         <service id="intl_format.twig.intl_format_extension" class="%intl_format.twig.intl_format_extension.class%" public="false">

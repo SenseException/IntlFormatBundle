@@ -7,3 +7,6 @@
 # Composer PHAR
 /composer.phar
 /composer.lock
+
+Tests/Framework/var/logs
+Tests/Framework/var/cache

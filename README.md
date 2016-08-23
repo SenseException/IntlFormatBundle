@@ -12,3 +12,9 @@ You can install this with [Composer](https://getcomposer.org/).
 ```
 composer require senseexception/intl-format-bundle
 ```
+
+## TODO
+
+* Config for multiple IntlFormat locales
+* "request" as config value to get locales from a Request instance
+* Twig function intl_format and wildcard function intl_format_*

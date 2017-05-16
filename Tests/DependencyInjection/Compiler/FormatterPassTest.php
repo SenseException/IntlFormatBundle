@@ -39,7 +39,7 @@ class FormatterPassTest extends \PHPUnit_Framework_TestCase
 
         (new FormatterPass())->process($container);
 
-        $this->assertCount(0, $definition->getMethodCalls());
+        self::assertCount(0, $definition->getMethodCalls());
     }
 
     public function testBuild()
@@ -63,9 +63,9 @@ class FormatterPassTest extends \PHPUnit_Framework_TestCase
 
         $calls = $definition->getMethodCalls();
 
-        $this->assertCount(1, $calls);
-        $this->assertSame('addFormatter', $calls[0][0]);
-        $this->assertInstanceOf(Reference::class, $calls[0][1][0]);
-        $this->assertSame('myformatter', (string) $calls[0][1][0]);
+        self::assertCount(1, $calls);
+        self::assertSame('addFormatter', $calls[0][0]);
+        self::assertInstanceOf(Reference::class, $calls[0][1][0]);
+        self::assertSame('myformatter', (string) $calls[0][1][0]);
     }
 }

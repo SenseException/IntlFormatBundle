@@ -16,10 +16,10 @@ class ServiceIntegrationTest extends WebTestCase
         $sprintfFormat = $client->getContainer()->get('intl_format.sprintf');
 
         // number formatter
-        $this->assertSame('2,2', $sprintfFormat->format('%number', 2.2));
+        self::assertSame('2,2', $sprintfFormat->format('%number', 2.2));
         // datetime formatter
-        $this->assertSame('März', $sprintfFormat->format('%date_month_name', new \DateTime('2016-03-05')));
+        self::assertSame('März', $sprintfFormat->format('%date_month_name', new \DateTime('2016-03-05')));
         // timezone formatter
-        $this->assertSame('UTC', $sprintfFormat->format('%timeseries_id', new \DateTimeZone('UTC')));
+        self::assertSame('UTC', $sprintfFormat->format('%timeseries_id', new \DateTimeZone('UTC')));
     }
 }

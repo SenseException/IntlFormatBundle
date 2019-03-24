@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults autowire="true" autoconfigure="true" public="false"/>
+
+        <instanceof id="Budgegeria\IntlFormat\Formatter\FormatterInterface">
+            <tag name="budgegeria_intl_format.formatter"/>
+        </instanceof>
+
+        <prototype namespace="Budgegeria\Bundle\IntlFormatBundle\" resource="../src/*" exclude="../src/{DependencyInjection}"/>
+        <prototype
+            namespace="Budgegeria\IntlFormat\Formatter\"
+            resource="../vendor/senseexception/intl-format/src/Formatter/*"
+        >
+            <bind key="$locale">%budgegeria_intl_format.locale%</bind>
+        </prototype>
+
+        <service id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>
+
+        <service id="Budgegeria\IntlFormat\IntlFormat">
+            <argument tag="budgegeria_intl_format.formatter" type="tagged"/>
+            <argument type="service" id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>
+        </service>
+    </services>
+
+</container>

@@ -11,10 +11,10 @@
             <tag name="budgegeria_intl_format.formatter"/>
         </instanceof>
 
-        <prototype namespace="Budgegeria\Bundle\IntlFormatBundle\" resource="../src/*" exclude="../src/{DependencyInjection}"/>
+        <prototype namespace="Budgegeria\Bundle\IntlFormatBundle\" resource="../../*" exclude="../../{DependencyInjection}"/>
         <prototype
             namespace="Budgegeria\IntlFormat\Formatter\"
-            resource="../vendor/senseexception/intl-format/src/Formatter/*"
+            resource="../../../../intl-format/src/Formatter/*"
         >
             <bind key="$locale">%budgegeria_intl_format.locale%</bind>
         </prototype>

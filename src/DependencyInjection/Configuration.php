@@ -18,10 +18,8 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-                ->children()
-                    ->scalarNode('locale')->end()
-                    ->scalarNode('currency')->end()
-                ->end()
+                ->scalarNode('locale')->end()
+                ->scalarNode('currency')->end()
             ->end()
         ;
 

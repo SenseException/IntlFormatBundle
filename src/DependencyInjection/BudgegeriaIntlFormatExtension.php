@@ -23,7 +23,7 @@ class BudgegeriaIntlFormatExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('budgegeria_intl_format.locale', $config['budgegeria_intl_format']['locale']);
-        $container->setParameter('budgegeria_intl_format.currency', $config['budgegeria_intl_format']['currency']);
+        $container->setParameter('budgegeria_intl_format.locale', $config['locale']);
+        $container->setParameter('budgegeria_intl_format.currency', $config['currency']);
     }
 }

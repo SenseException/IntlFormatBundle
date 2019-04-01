@@ -7,17 +7,30 @@
     <services>
         <defaults autowire="true" autoconfigure="true" public="false"/>
 
+        <!-- budgegeria_intl_format.formatter tagged services -->
+
         <instanceof id="Budgegeria\IntlFormat\Formatter\FormatterInterface">
             <tag name="budgegeria_intl_format.formatter"/>
+            <bind key="$locale">%budgegeria_intl_format.locale%</bind>
         </instanceof>
 
-        <prototype namespace="Budgegeria\Bundle\IntlFormatBundle\" resource="../../*" exclude="../../{DependencyInjection}"/>
         <prototype
             namespace="Budgegeria\IntlFormat\Formatter\"
             resource="../../../../intl-format/src/Formatter/*"
-        >
-            <bind key="$locale">%budgegeria_intl_format.locale%</bind>
-        </prototype>
+            exclude="../../../../intl-format/src/Formatter/{MessageFormatter,SprintfFormatter}.php"
+        />
+
+        <service id="Budgegeria\Bundle\IntlFormatBundle\MessageNumberFormatter" class="Budgegeria\IntlFormat\Formatter\MessageFormatter">
+            <factory method="createNumberValueFormatter"/>
+        </service>
+
+        <service id="Budgegeria\Bundle\IntlFormatBundle\MessageDateFormatter" class="Budgegeria\IntlFormat\Formatter\MessageFormatter">
+            <factory method="createDateValueFormatter"/>
+        </service>
+
+        <!-- services -->
+
+        <prototype namespace="Budgegeria\Bundle\IntlFormatBundle\" resource="../../*" exclude="../../{DependencyInjection}"/>
 
         <service id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>
 

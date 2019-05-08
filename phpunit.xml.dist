@@ -11,21 +11,16 @@
         beStrictAboutTestsThatDoNotTestAnything="true"
         beStrictAboutOutputDuringTests="true"
         beStrictAboutChangesToGlobalState="true">
+
     <testsuite name="classes">
-        <directory suffix="Test.php">./Tests</directory>
+        <directory suffix="Test.php">tests</directory>
     </testsuite>
 
-    <php>
-        <server name="KERNEL_DIR" value="Tests/Framework" />
-    </php>
-
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">.</directory>
+        <whitelist>
+            <directory suffix=".php">src</directory>
             <exclude>
-                <directory>./vendor</directory>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
+                <directory>src/Resources</directory>
             </exclude>
         </whitelist>
     </filter>

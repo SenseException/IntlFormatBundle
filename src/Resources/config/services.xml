@@ -14,11 +14,15 @@
             <bind key="$locale">%budgegeria_intl_format.locale%</bind>
         </instanceof>
 
-        <prototype
-            namespace="Budgegeria\IntlFormat\Formatter\"
-            resource="../../../../intl-format/src/Formatter/*"
-            exclude="../../../../intl-format/src/Formatter/{MessageFormatter,SprintfFormatter}.php"
-        />
+        <service id="Budgegeria\IntlFormat\Formatter\CurrencySymbolFormatter" />
+
+        <service id="Budgegeria\IntlFormat\Formatter\ExceptionFormatter" />
+
+        <service id="Budgegeria\IntlFormat\Formatter\LocaleFormatter" />
+
+        <service id="Budgegeria\IntlFormat\Formatter\PrecisionNumberFormatter" />
+
+        <service id="Budgegeria\IntlFormat\Formatter\TimeZoneFormatter" />
 
         <service id="Budgegeria\Bundle\IntlFormatBundle\MessageNumberFormatter" class="Budgegeria\IntlFormat\Formatter\MessageFormatter">
             <factory method="createNumberValueFormatter"/>

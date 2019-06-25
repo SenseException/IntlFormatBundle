@@ -42,6 +42,10 @@
             <argument tag="budgegeria_intl_format.formatter" type="tagged"/>
             <argument type="service" id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>
         </service>
+
+        <service id="Budgegeria\Bundle\IntlFormatBundle\Twig\IntlFormatterExtension">
+            <tag name="twig.extension"/>
+        </service>
     </services>
 
 </container>

@@ -1,0 +1,8 @@
+--TEST--
+"intl_format" function
+--TEMPLATE--
+{{ intl_format("This is the %integer time that the number %integer appear", 4, 6000) }}
+--DATA--
+return []
+--EXPECT--
+This is the 4 time that the number 6.000 appear

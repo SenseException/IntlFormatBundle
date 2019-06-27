@@ -7,6 +7,7 @@ namespace Budgegeria\Bundle\IntlFormatBundle\Twig;
 use Budgegeria\IntlFormat\IntlFormat;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 class IntlFormatterExtension extends AbstractExtension
 {
@@ -27,7 +28,14 @@ class IntlFormatterExtension extends AbstractExtension
         ];
     }
 
-    public function format(string $message, ...$values)
+    public function getFunctions()
+    {
+        return [
+            new TwigFunction('intl_format', [$this, 'format']),
+        ];
+    }
+
+    public function format(string $message, ...$values) : string
     {
         return $this->intlFormat->format($message, ...$values);
     }

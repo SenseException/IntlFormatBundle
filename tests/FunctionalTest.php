@@ -7,6 +7,7 @@ namespace Budgegeria\Bundle\IntlFormatBundle\Tests;
 use Budgegeria\Bundle\IntlFormatBundle\BudgegeriaIntlFormatBundle;
 use Budgegeria\Bundle\IntlFormatBundle\DependencyInjection\BudgegeriaIntlFormatExtension;
 use Budgegeria\IntlFormat\IntlFormat;
+use Budgegeria\IntlFormat\IntlFormatInterface;
 use DateTime;
 use DateTimeZone;
 use PHPUnit\Framework\TestCase;
@@ -20,6 +21,7 @@ class FunctionalTest extends TestCase
         $container = $this->createContainer();
 
         $intlFormat = $container->get(IntlFormat::class);
+        assert($intlFormat instanceof IntlFormatInterface);
 
         $date = new DateTime();
         $date->setDate(2016, 3, 1);

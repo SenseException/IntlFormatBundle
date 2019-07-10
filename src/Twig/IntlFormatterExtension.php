@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Budgegeria\Bundle\IntlFormatBundle\Twig;
 
-use Budgegeria\IntlFormat\IntlFormat;
+use Budgegeria\IntlFormat\IntlFormatInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -12,11 +12,11 @@ use Twig\TwigFunction;
 class IntlFormatterExtension extends AbstractExtension
 {
     /**
-     * @var IntlFormat
+     * @var IntlFormatInterface
      */
     private $intlFormat;
 
-    public function __construct(IntlFormat $intlFormat)
+    public function __construct(IntlFormatInterface $intlFormat)
     {
         $this->intlFormat = $intlFormat;
     }

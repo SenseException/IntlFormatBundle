@@ -16,9 +16,15 @@ class IntlFormatterExtension extends AbstractExtension
      */
     private $intlFormat;
 
-    public function __construct(IntlFormatInterface $intlFormat)
+    /**
+     * @var string
+     */
+    private $currency;
+
+    public function __construct(IntlFormatInterface $intlFormat, string $currency)
     {
         $this->intlFormat = $intlFormat;
+        $this->currency   = $currency;
     }
 
     public function getFilters()
@@ -32,6 +38,9 @@ class IntlFormatterExtension extends AbstractExtension
     {
         return [
             new TwigFunction('intl_format', [$this, 'format']),
+            new TwigFunction('currency_symbol', function () : string {
+                return $this->intlFormat->format('%currency_symbol', $this->currency);
+            }),
         ];
     }
 

@@ -44,6 +44,7 @@
         </service>
 
         <service id="Budgegeria\Bundle\IntlFormatBundle\Twig\IntlFormatterExtension">
+            <bind key="$currency">%budgegeria_intl_format.currency%</bind>
             <tag name="twig.extension"/>
         </service>
     </services>

@@ -13,7 +13,7 @@ class IntlFormatterExtensionTest extends IntegrationTestCase
     public function getExtensions()
     {
         return [
-            new IntlFormatterExtension((new Factory())->createIntlFormat('de_DE')),
+            new IntlFormatterExtension((new Factory())->createIntlFormat('de_DE'), 'EUR'),
         ];
     }
 

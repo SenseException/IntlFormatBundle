@@ -38,6 +38,8 @@
 
         <service id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>
 
+        <service id="Budgegeria\IntlFormat\IntlFormatInterface" alias="Budgegeria\IntlFormat\IntlFormat"/>
+
         <service id="Budgegeria\IntlFormat\IntlFormat">
             <argument tag="budgegeria_intl_format.formatter" type="tagged"/>
             <argument type="service" id="Budgegeria\IntlFormat\MessageParser\SprintfParser"/>

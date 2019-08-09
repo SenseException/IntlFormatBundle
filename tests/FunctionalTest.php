@@ -6,6 +6,7 @@ namespace Budgegeria\Bundle\IntlFormatBundle\Tests;
 
 use Budgegeria\Bundle\IntlFormatBundle\BudgegeriaIntlFormatBundle;
 use Budgegeria\Bundle\IntlFormatBundle\DependencyInjection\BudgegeriaIntlFormatExtension;
+use Budgegeria\Bundle\IntlFormatBundle\Twig\IntlFormatterExtension;
 use Budgegeria\IntlFormat\IntlFormat;
 use Budgegeria\IntlFormat\IntlFormatInterface;
 use DateTime;
@@ -16,12 +17,13 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class FunctionalTest extends TestCase
 {
-    public function testServices()
+    public function testIntlFormatterService()
     {
         $container = $this->createContainer();
 
         $intlFormat = $container->get(IntlFormat::class);
-        assert($intlFormat instanceof IntlFormatInterface);
+
+        self::assertInstanceOf(IntlFormatInterface::class, $intlFormat);
 
         $date = new DateTime();
         $date->setDate(2016, 3, 1);
@@ -35,6 +37,15 @@ class FunctionalTest extends TestCase
         self::assertSame('The timezone id is US/Arizona.', $intlFormat->format('The timezone id is %timeseries_id.', $date));
         self::assertSame('I am from Italy.', $intlFormat->format('I am from %region.', 'it_IT'));
         self::assertSame('You have 10$.', $intlFormat->format('You have 10%currency_symbol.', ''));
+    }
+
+    public function testTwigExtensionService()
+    {
+        $container = $this->createContainer();
+
+        $intlFormatterExtension = $container->get(IntlFormatterExtension::class);
+
+        self::assertInstanceOf(IntlFormatterExtension::class, $intlFormatterExtension);
     }
 
     private function createContainer() : ContainerBuilder
@@ -62,6 +73,7 @@ class FunctionalTest extends TestCase
         ], $containerBuilder);
 
         $containerBuilder->getDefinition(IntlFormat::class)->setPublic(true);
+        $containerBuilder->getDefinition(IntlFormatterExtension::class)->setPublic(true);
 
         $containerBuilder->compile();
 

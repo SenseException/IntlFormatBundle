@@ -13,7 +13,7 @@
     "require": {
         "ext-intl": "*",
         "php": "^7.2",
-        "senseexception/intl-format": "dev-master",
+        "senseexception/intl-format": "^2.0",
         "symfony/http-kernel": "^4.3",
         "symfony/http-foundation": "^4.3",
         "symfony/dependency-injection": "^4.3",

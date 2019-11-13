@@ -6,11 +6,18 @@ php:
   - '7.4snapshot'
   - nightly
 
+env:
+  - 'SYMFONY=^4.3 STABILITY=stable'
+  - 'SYMFONY=^4.4 STABILITY=dev'
+  - 'SYMFONY=^5.0 STABILITY=dev'
+
 before_install:
   - composer self-update
 
 install:
   - composer install --dev --prefer-source
+  - if [[ "$STABILITY" == "dev" ]]; then composer config minimum-stability dev; fi;
+  - composer require --dev --update-with-all-dependencies symfony/http-kernel:${SYMFONY} symfony/http-foundation:${SYMFONY} symfony/dependency-injection:${SYMFONY} symfony/config:${SYMFONY} symfony/twig-bundle:${SYMFONY}
 
 script:
   - vendor/bin/phpunit
@@ -20,3 +27,4 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
+    - env: 'SYMFONY=^5.0 STABILITY=dev'

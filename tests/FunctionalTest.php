@@ -17,7 +17,10 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 class FunctionalTest extends TestCase
 {
-    public function testIntlFormatterService()
+    /**
+     * @test
+     */
+    public function intlFormatterService() : void
     {
         $container = $this->createContainer();
 
@@ -39,7 +42,10 @@ class FunctionalTest extends TestCase
         self::assertSame('You have 10$.', $intlFormat->format('You have 10%currency_symbol.', ''));
     }
 
-    public function testTwigExtensionService()
+    /**
+     * @test
+     */
+    public function twigExtensionService() : void
     {
         $container = $this->createContainer();
 

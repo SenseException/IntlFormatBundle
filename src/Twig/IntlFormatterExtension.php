@@ -44,6 +44,14 @@ class IntlFormatterExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * @param string $message
+     * @param mixed  ...$values
+     *
+     * @return string
+     *
+     * @throws \Budgegeria\IntlFormat\Exception\InvalidTypeSpecifierException
+     */
     public function format(string $message, ...$values) : string
     {
         return $this->intlFormat->format($message, ...$values);

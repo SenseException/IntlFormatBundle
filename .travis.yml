@@ -11,6 +11,7 @@ env:
   - 'SYMFONY=^4.3.0 STABILITY=stable'
   - 'SYMFONY=^4.4 STABILITY=stable'
   - 'SYMFONY=^5.0 STABILITY=stable'
+  - 'SYMFONY=^5.1 STABILITY=dev'
 
 before_install:
   - composer self-update
@@ -28,4 +29,4 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
-    - env: 'SYMFONY=^5.0 STABILITY=stable'
+    - env: 'SYMFONY=^5.1 STABILITY=dev'

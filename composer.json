@@ -14,16 +14,16 @@
         "ext-intl": "*",
         "php": "^7.2",
         "senseexception/intl-format": "^2.0",
-        "symfony/http-kernel": "^4.3 | ^5.0",
-        "symfony/http-foundation": "^4.3 | ^5.0",
-        "symfony/dependency-injection": "^4.3 | ^5.0",
-        "symfony/config": "^4.3 | ^5.0",
-        "symfony/twig-bundle": "^4.3 | ^5.0"
+        "symfony/http-kernel": "^4.3 || ^5.0",
+        "symfony/http-foundation": "^4.3 || ^5.0",
+        "symfony/dependency-injection": "^4.3 || ^5.0",
+        "symfony/config": "^4.3 || ^5.0",
+        "symfony/twig-bundle": "^4.3 || ^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.4",
-        "phpstan/phpstan": "0.12.x-dev",
-        "phpstan/phpstan-phpunit": "0.12.x-dev"
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12"
     },
     "autoload": {
         "psr-4": {
@@ -35,6 +35,5 @@
             "Budgegeria\\Bundle\\IntlFormatBundle\\Tests\\": "tests"
         }
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev"
+    "prefer-stable": true
 }

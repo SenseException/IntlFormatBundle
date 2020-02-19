@@ -17,9 +17,9 @@ before_install:
   - composer self-update
 
 install:
-  - composer install --dev --prefer-source
   - if [[ "$STABILITY" == "dev" ]]; then composer config minimum-stability dev; fi;
   - composer require --dev --update-with-all-dependencies symfony/http-kernel:${SYMFONY} symfony/http-foundation:${SYMFONY} symfony/dependency-injection:${SYMFONY} symfony/config:${SYMFONY} symfony/twig-bundle:${SYMFONY}
+  - composer update
 
 script:
   - vendor/bin/phpunit

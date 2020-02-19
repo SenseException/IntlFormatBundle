@@ -23,6 +23,7 @@ install:
 
 script:
   - vendor/bin/phpunit
+  - phpdbg -qrr vendor/bin/infection --min-msi=95
   - vendor/bin/phpstan analyse
 
 matrix:

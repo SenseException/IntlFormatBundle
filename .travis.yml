@@ -1,7 +1,6 @@
 language: php
 
 php:
-  - '7.2'
   - '7.3'
   - '7.4'
   - nightly
@@ -11,7 +10,8 @@ env:
   - 'SYMFONY=^4.3.0 STABILITY=stable'
   - 'SYMFONY=^4.4 STABILITY=stable'
   - 'SYMFONY=^5.0 STABILITY=stable'
-  - 'SYMFONY=^5.1 STABILITY=dev'
+  - 'SYMFONY=^5.1 STABILITY=stable'
+  - 'SYMFONY=^5.2 STABILITY=dev'
 
 before_install:
   - composer self-update
@@ -22,12 +22,12 @@ install:
   - composer update
 
 script:
-  - vendor/bin/phpunit
-  - phpdbg -qrr vendor/bin/infection --min-msi=95
   - vendor/bin/phpstan analyse
+  - vendor/bin/phpunit
+  - phpdbg -qrr vendor/bin/infection --min-msi=100
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
-    - env: 'SYMFONY=^5.1 STABILITY=dev'
+    - env: 'SYMFONY=^5.2 STABILITY=dev'

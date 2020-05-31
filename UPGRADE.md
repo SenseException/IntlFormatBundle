@@ -1,4 +1,10 @@
-# Creation of 1.0-RC1
+# Creation of 1.1.0
+
+## Drop of PHP 7.2 support
+
+The lowest supported PHP version is now 7.3.
+
+# Creation of 1.0.0
 
 ## Introduction of new filter
 

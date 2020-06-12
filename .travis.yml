@@ -6,8 +6,7 @@ php:
   - nightly
 
 env:
-  - 'SYMFONY=4.3.0 STABILITY=stable'
-  - 'SYMFONY=^4.3.0 STABILITY=stable'
+  - 'SYMFONY=4.4.0 STABILITY=stable'
   - 'SYMFONY=^4.4 STABILITY=stable'
   - 'SYMFONY=^5.0 STABILITY=stable'
   - 'SYMFONY=^5.1 STABILITY=stable'

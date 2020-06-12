@@ -4,6 +4,10 @@
 
 The lowest supported PHP version is now 7.3.
 
+## Drop of Symfony 4.3 support
+
+The lowest supported Symfony version is now 4.4.
+
 # Creation of 1.0.0
 
 ## Introduction of new filter

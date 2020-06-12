@@ -22,6 +22,7 @@ install:
 
 script:
   - vendor/bin/phpstan analyse
+  - vendor/bin/psalm
   - vendor/bin/phpunit
   - phpdbg -qrr vendor/bin/infection --min-msi=100
 

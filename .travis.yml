@@ -17,8 +17,24 @@ before_install:
 
 install:
   - if [[ "$STABILITY" == "dev" ]]; then composer config minimum-stability dev; fi;
-  - composer require --dev --update-with-all-dependencies symfony/http-kernel:${SYMFONY} symfony/http-foundation:${SYMFONY} symfony/dependency-injection:${SYMFONY} symfony/config:${SYMFONY} symfony/twig-bundle:${SYMFONY}
-  - composer update
+  - |
+    if [[ "$(phpenv version-name)" == "nightly" ]]; then
+      composer require --dev --ignore-platform-reqs;
+    else
+      composer require --dev
+    fi;
+      --update-with-all-dependencies
+      symfony/http-kernel:${SYMFONY}
+      symfony/http-foundation:${SYMFONY}
+      symfony/dependency-injection:${SYMFONY}
+      symfony/config:${SYMFONY}
+      symfony/twig-bundle:${SYMFONY}
+  - |
+    if [[ "$(phpenv version-name)" == "nightly" ]]; then
+      composer update --ignore-platform-reqs;
+    else
+      composer update
+    fi;
 
 script:
   - vendor/bin/phpstan analyse

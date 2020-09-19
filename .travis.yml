@@ -3,7 +3,7 @@ language: php
 php:
   - '7.3'
   - '7.4'
-  - nightly
+  - 'nightly'
 
 env:
   - 'SYMFONY=4.4.0 STABILITY=stable'
@@ -29,5 +29,12 @@ script:
 matrix:
   fast_finish: true
   allow_failures:
-    - php: nightly
+    - php: 'nightly'
     - env: 'SYMFONY=^5.2 STABILITY=dev'
+
+jobs:
+  exclude:
+    - php: 'nightly'
+      env: 'SYMFONY=4.4.0 STABILITY=stable'
+    - php: 'nightly'
+      env: 'SYMFONY=^4.4 STABILITY=stable'

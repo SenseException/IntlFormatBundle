@@ -4,7 +4,6 @@ A Symfony bundle of the [Intl-Format wrapper library](https://github.com/SenseEx
 This bundle is currently in development and might introduce BC breaks.
 
 [![Build Status](https://travis-ci.org/SenseException/IntlFormatBundle.svg?branch=master)](https://travis-ci.org/SenseException/IntlFormatBundle)
-[![SymfonyInsight](https://insight.symfony.com/projects/8e8f83a8-2bb1-47ce-93a1-7f2914f196b3/mini.svg)](https://insight.symfony.com/projects/8e8f83a8-2bb1-47ce-93a1-7f2914f196b3)
 
 ## Installation
 

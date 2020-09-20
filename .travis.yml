@@ -6,7 +6,6 @@ php:
   - 'nightly'
 
 env:
-  - 'SYMFONY=4.4.0 STABILITY=stable'
   - 'SYMFONY=^4.4 STABILITY=stable'
   - 'SYMFONY=^5.0 STABILITY=stable'
   - 'SYMFONY=^5.1 STABILITY=stable'
@@ -17,24 +16,14 @@ before_install:
 
 install:
   - if [[ "$STABILITY" == "dev" ]]; then composer config minimum-stability dev; fi;
-  - |
-    if [[ "$(phpenv version-name)" == "nightly" ]]; then
-      composer require --dev --ignore-platform-reqs;
-    else
-      composer require --dev
-    fi;
-      --update-with-all-dependencies
-      symfony/http-kernel:${SYMFONY}
-      symfony/http-foundation:${SYMFONY}
-      symfony/dependency-injection:${SYMFONY}
-      symfony/config:${SYMFONY}
-      symfony/twig-bundle:${SYMFONY}
-  - |
-    if [[ "$(phpenv version-name)" == "nightly" ]]; then
-      composer update --ignore-platform-reqs;
-    else
-      composer update
-    fi;
+  - if [[ "$(phpenv version-name)" == "nightly" ]]; then export REQS="--ignore-platform-reqs"; fi;
+  - composer require --dev  ${REQS} --update-with-all-dependencies
+    symfony/http-kernel:${SYMFONY}
+    symfony/http-foundation:${SYMFONY}
+    symfony/dependency-injection:${SYMFONY}
+    symfony/config:${SYMFONY}
+    symfony/twig-bundle:${SYMFONY}
+  - composer update ${REQS}
 
 script:
   - vendor/bin/phpstan analyse
@@ -47,10 +36,3 @@ matrix:
   allow_failures:
     - php: 'nightly'
     - env: 'SYMFONY=^5.2 STABILITY=dev'
-
-jobs:
-  exclude:
-    - php: 'nightly'
-      env: 'SYMFONY=4.4.0 STABILITY=stable'
-    - php: 'nightly'
-      env: 'SYMFONY=^4.4 STABILITY=stable'

@@ -3,13 +3,16 @@ language: php
 php:
   - '7.3'
   - '7.4'
+  - '8.0'
   - 'nightly'
 
 env:
   - 'SYMFONY=^4.4 STABILITY=stable'
   - 'SYMFONY=^5.0 STABILITY=stable'
   - 'SYMFONY=^5.1 STABILITY=stable'
-  - 'SYMFONY=^5.2 STABILITY=dev'
+  - 'SYMFONY=^5.2 STABILITY=stable'
+  - 'SYMFONY=^5.3 STABILITY=stable'
+  - 'SYMFONY=^5.4 STABILITY=dev'
 
 before_install:
   - composer self-update
@@ -35,4 +38,4 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: 'nightly'
-    - env: 'SYMFONY=^5.2 STABILITY=dev'
+    - env: 'SYMFONY=^5.4 STABILITY=dev'

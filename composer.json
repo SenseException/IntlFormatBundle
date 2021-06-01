@@ -24,10 +24,10 @@
         "phpunit/phpunit": "^9.3",
         "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-phpunit": "^0.12",
-        "infection/infection": "^0.17",
-        "vimeo/psalm": "^3.14",
-        "psalm/plugin-phpunit": "^0.10",
-        "psalm/plugin-symfony": "^1.2"
+        "infection/infection": "^0.18",
+        "vimeo/psalm": "^4.7",
+        "psalm/plugin-phpunit": "^0.15",
+        "psalm/plugin-symfony": "^2.3"
     },
     "autoload": {
         "psr-4": {

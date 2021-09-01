@@ -8,9 +8,17 @@ jobs:
   tests:
 
     runs-on: ubuntu-latest
+    continue-on-error: "${{ matrix.php-versions == '8.1' || matrix.symfony == '^5.4' }}"
     strategy:
       matrix:
-        php-versions: ['7.3', '7.4', '8.0']
+        php-versions: ['7.3', '7.4', '8.0', '8.1']
+        symfony:
+          - '^4.4'
+          - '^5.0'
+          - '^5.1'
+          - '^5.2'
+          - '^5.3'
+          - '^5.4'
 
     steps:
     - uses: actions/checkout@v2
@@ -30,9 +38,25 @@ jobs:
         php-version: "${{ matrix.php-versions }}"
         extensions: "intl, xdebug"
 
+    - name: "Adapt dependencies"
+      if: ${{ matrix.php-versions == '8.1' }}
+      run: composer config platform.php 8.0.99
+
+    - name: "Adapt dependencies"
+      if: ${{ matrix.symfony == '^5.4' }}
+      run: composer config minimum-stability dev
+
     - name: "Install dependencies"
-      if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: |
+        composer require --dev --update-with-all-dependencies \
+          symfony/http-kernel:${{ matrix.symfony }} \
+          symfony/http-foundation:${{ matrix.symfony }} \
+          symfony/dependency-injection:${{ matrix.symfony }} \
+          symfony/config:${{ matrix.symfony }} \
+          symfony/twig-bundle:${{ matrix.symfony }}
+
+    - name: "Update to latest dependencies"
+      run: composer update
 
     - name: "Unit + Integration"
       run: vendor/bin/phpunit

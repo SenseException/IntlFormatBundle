@@ -4,6 +4,7 @@ A Symfony bundle of the [Intl-Format wrapper library](https://github.com/SenseEx
 This bundle is currently in development and might introduce BC breaks.
 
 [![Latest Stable Version](http://poser.pugx.org/senseexception/intl-format-bundle/v)](https://packagist.org/packages/senseexception/intl-format-bundle)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/senseexception/intl-format-bundle.svg)](https://packagist.org/packages/senseexception/intl-format-bundle)
 [![Tests](https://github.com/SenseException/IntlFormatBundle/actions/workflows/tests.yml/badge.svg)](https://github.com/SenseException/IntlFormatBundle/actions/workflows/tests.yml)
 [![Static Analysis](https://github.com/SenseException/IntlFormatBundle/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/SenseException/IntlFormatBundle/actions/workflows/static-analysis.yml)
 [![License](http://poser.pugx.org/senseexception/intl-format-bundle/license)](https://packagist.org/packages/senseexception/intl-format-bundle)

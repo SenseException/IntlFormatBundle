@@ -20,6 +20,9 @@ jobs:
           - '^5.3'
           - '^5.4'
           - '^6.0'
+        exclude:
+          - symfony: '^6.0'
+            php-versions: '7.4'
 
     steps:
     - uses: actions/checkout@v2

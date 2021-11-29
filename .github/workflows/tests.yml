@@ -8,10 +8,10 @@ jobs:
   tests:
 
     runs-on: ubuntu-latest
-    continue-on-error: "${{ matrix.php-versions == '8.1' || matrix.symfony == '^5.4' || matrix.symfony == '^6.0' }}"
+    continue-on-error: "${{ matrix.php-versions == '8.2' || matrix.symfony == '^5.4' || matrix.symfony == '^6.0' }}"
     strategy:
       matrix:
-        php-versions: ['7.4', '8.0', '8.1']
+        php-versions: ['8.0', '8.1', '8.2']
         symfony:
           - '^4.4'
           - '^5.0'
@@ -20,9 +20,6 @@ jobs:
           - '^5.3'
           - '^5.4'
           - '^6.0'
-        exclude:
-          - symfony: '^6.0'
-            php-versions: '7.4'
 
     steps:
     - uses: actions/checkout@v2
@@ -43,7 +40,7 @@ jobs:
         extensions: "intl, xdebug"
 
     - name: "Adapt dependencies"
-      if: ${{ matrix.php-versions == '8.1' }}
+      if: ${{ matrix.php-versions == '8.2' }}
       run: composer config platform.php 8.0.99
 
     - name: "Adapt dependencies"

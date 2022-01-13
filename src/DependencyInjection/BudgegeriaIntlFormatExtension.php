@@ -23,6 +23,7 @@ class BudgegeriaIntlFormatExtension extends Extension
         $loader->load('services.xml');
 
         $configuration = new Configuration();
+        /** @phpstan-var array{locale: string, currency: string} $config */
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('budgegeria_intl_format.locale', $config['locale']);

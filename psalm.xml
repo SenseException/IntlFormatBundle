@@ -18,8 +18,7 @@
     <issueHandlers>
         <PossiblyUndefinedMethod>
             <errorLevel type="suppress">
-                <referencedMethod name="Symfony\Component\Config\Definition\Builder\NodeDefinition::children" />
-                <referencedMethod name="Symfony\Component\Config\Definition\Builder\NodeDefinition::scalarNode" />
+                <file name="src/DependencyInjection/Configuration.php" />
             </errorLevel>
         </PossiblyUndefinedMethod>
 

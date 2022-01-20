@@ -24,7 +24,7 @@
         "phpunit/phpunit": "^9.3",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
-        "infection/infection": "^0.18",
+        "infection/infection": "^0.26.2",
         "vimeo/psalm": "^4.7",
         "psalm/plugin-phpunit": "^0.15",
         "psalm/plugin-symfony": "^2.3"

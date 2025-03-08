@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Budgegeria\Bundle\IntlFormatBundle\Twig;
 
 use Budgegeria\IntlFormat\IntlFormatInterface;
+use Override;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -27,6 +28,7 @@ class IntlFormatterExtension extends AbstractExtension
         $this->currency   = $currency;
     }
 
+    #[Override]
     public function getFilters()
     {
         return [
@@ -34,6 +36,7 @@ class IntlFormatterExtension extends AbstractExtension
         ];
     }
 
+    #[Override]
     public function getFunctions()
     {
         return [

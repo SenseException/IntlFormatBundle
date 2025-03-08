@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Budgegeria\Bundle\IntlFormatBundle\DependencyInjection;
 
+use Override;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
@@ -17,6 +18,7 @@ class BudgegeriaIntlFormatExtension extends Extension
      *
      * @return void
      */
+    #[Override]
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(dirname(__DIR__).'/Resources/config'));

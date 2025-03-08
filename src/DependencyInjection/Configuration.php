@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Budgegeria\Bundle\IntlFormatBundle\DependencyInjection;
 
+use Override;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -12,6 +13,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @return \Symfony\Component\Config\Definition\Builder\TreeBuilder
      */
+    #[Override]
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('budgegeria_intl_format');
